@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 我本以为通过设置 android:theme="@style/ThemeOverlay.AppCompat.Dark"
+可以使HeaderLayout覆盖在状态栏之上,但是实际不起作用.-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimaryDark"
+              android:padding="16dp">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/yaktocat"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="降龙十八掌"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>

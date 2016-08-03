@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 抽屉布局, DrawerLayout必须是根布局,一是它需要处理与AppBar和ToolBar的关系;二是,如果它被父布局框住,就没有空间展示抽屉特性了 -->
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- DrawerLayout作为根布局,它的第一个子view是主内容view(也就是在Activity中展示给我们看的),长和宽必须是match_parent,且不能设置layout_gravity属性.
+         Drawer view作为后续子view放在主内容view后面. -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 添加ToolBar.
+        ToolBar也是主内容view的一部分(在Activity中展示给我们看,接收我们的交互),
+        所以需要放在主内容view中.它需要完全贴合父view,padding和margin统统不要.
+        ToolBar其实也是一个普通的view,与TextView和ImageView等同级,只是功能稍微
+        强大了一些.在Layout控件看来,它们都一样,都是子view.-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:text="Hello ToolBar and NavigationView"
+            android:layout_below="@id/toolbar"
+            android:padding="10dp"/>
+    </RelativeLayout>
+
+    <!-- 抽屉内容.DrawerLayout是容器,NavigationView是内容, NavigationView必须配合DrawerLayout使用-->
+    <!-- NavigationView作为抽屉被拉出来时,它的上沿是从屏幕的上沿开始的,但是它又不会遮盖状态栏,反而会被状态栏遮挡.
+    所以,它的headerLayout一般需要设置marginTop.-->
+    <!-- 可以添加多个抽屉,但是同一个位置,只能存在一个抽屉.通过layout_gravity定义抽屉位置-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/layout_navigation_view_header"
+        app:menu="@menu/layout_navigation_view_item">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
+

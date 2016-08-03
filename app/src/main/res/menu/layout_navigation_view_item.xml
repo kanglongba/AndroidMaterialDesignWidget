@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 直接使用menu生成NavigationView的菜单项 -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item android:icon="@drawable/ic_domain"
+              android:title="Home"
+              android:id="@+id/navigation_item_home"
+              android:checked="true" />
+
+        <item android:icon="@drawable/ic_pages"
+              android:title="Message"
+              android:id="@+id/navigation_item_msg" />
+
+        <item android:icon="@drawable/ic_group"
+              android:title="Friends"
+              android:id="@+id/navigation_item_friends" />
+
+        <item android:icon="@drawable/ic_cake"
+              android:title="Discussion"
+              android:id="@+id/navigation_item_discuss" />
+    </group>
+
+    <!-- 使用子菜单为菜单分组.subheader中不显示图标,所以icon属性对它没有效果-->
+    <item android:icon="@drawable/ic_school"
+          android:title="School"
+          android:id="@+id/navigation_item_school_subheader" >
+        <menu>
+            <item android:icon="@drawable/ic_location_city"
+                  android:title="Location"
+                  android:id="@+id/navigation_item_school_location" />
+            <item android:icon="@drawable/ic_notifications"
+                  android:title="Notifications"
+                  android:id="@+id/navigation_item_school_notifications" />
+        </menu>
+    </item>
+</menu>

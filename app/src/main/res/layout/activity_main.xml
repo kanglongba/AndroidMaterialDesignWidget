@@ -51,5 +51,25 @@
         android:text="floating action button and snackbar"
         android:id="@+id/md_floatactionbuttion" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="tabLyout and viewPager"
+        android:id="@+id/md_tabLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="CoordinatorLayout with FAB"
+        android:id="@+id/md_CoordinatorLayoutAndFAB" />
+
 
 </LinearLayout>

@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context="com.bupt.edison.androidmaterialdesignwidget.TabLayoutActivity">
 
+    <!-- TabLayout,实现选项卡.使用方式主要有三种:
+     1.在xml中通过TabItem添加,可以设置选项卡的title和icon
+     2.在code中通过TabLayout.Tab添加,也可以设置选项卡得title和icon
+     3.与ViewPager协调使用,通过PagerAdapter的getPageTitle()获取选项卡的title,貌似不能设置icon
+     虽然TabLayout也是一个Layout,但是在xml中,它除了TabItem什么也不能添加.
+     Tablayout的选项卡,可以是等分的,也可以是可滚动的-->
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"

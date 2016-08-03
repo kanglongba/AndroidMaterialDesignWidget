@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
     Button mdTextinput;
     @Bind(R.id.md_floatactionbuttion)
     Button mdFloatactionbuttion;
+    @Bind(R.id.md_tabLayout)
+    Button mdTabLayout;
+    @Bind(R.id.md_CoordinatorLayoutAndFAB)
+    Button mdCoordinatorLayoutAndFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.md_floatactionbuttion)
     public void onClickFAB() {
         Intent intent = new Intent(MainActivity.this, FloatActionButtonActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.md_tabLayout)
+    public void onClickTabLayout() {
+        Intent intent = new Intent(MainActivity.this, TabLayoutActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.md_CoordinatorLayoutAndFAB)
+    public void onClickCoordinatorLayoutAndFAB() {
+        Intent intent = new Intent(MainActivity.this, CoordinatorLayoutAndFABActivity.class);
         startActivity(intent);
     }
 }

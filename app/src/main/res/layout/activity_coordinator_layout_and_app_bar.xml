@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bupt.edison.androidmaterialdesignwidget.CoordinatorLayoutAndAppBarActivity">
+
+    <!-- 很多控件和CoordinatorLayout搭配使用,都会具有额外的功能.CoordinatorLayout
+     就像一件装备,谁穿上,谁就被赋予了强大功能 -->
+    <!-- 这个例子中,CoordinatorLayout与AppBarLayout结合,赋予Toolbar和TabLayout控件
+    Material Design风格的滚动效果.
+    AppBarLayout必须是CoordinatorLayout的直接子view,否则它的很多功能发挥不出来.
+
+    为了使AppBarLayout能准确响应滚动事件,必须对触发滚动事件的view添加一个标记,使AppBarLayout
+    能够准确识别它.添加标记的方式有两种:
+    1.代码中,通过AppBarLayout.ScrollingViewBehavior类
+    2.xml中,通过 app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    这个String Resource是Support Library提供的,与AppBarLayout.ScrollingViewBehavior对应
+    -->
+
+    <!--AppBarLayout的子view通过设置scrollFlags属性来定义它们的滚动行为.
+    当用户触发滚动时,AppBarLayout通过子View设置的滚动行为控制子view如何进入与退出屏幕:
+    scroll: 所有想滚动出屏幕的view都需要设置这个flag- 没有设置这个flag的view将被固定在屏幕顶部。
+    enterAlways: 这个flag让任意向下的滚动都会导致该view变为可见，启用快速“返回模式”。
+    enterAlwaysCollapsed: 顾名思义，这个flag定义的是何时进入（已经消失之后何时再次显示）。假设你定义了一个最小高度（minHeight）同时enterAlways也定义了，那么view将在到达这个最小高度的时候开始显示，并且从这个时候开始慢慢展开，当滚动到顶部的时候展开完。
+    exitUntilCollapsed: 同样顾名思义，这个flag时定义何时退出，当你定义了一个minHeight，这个view将在滚动到达这个最小高度的时候消失。
+
+    注意一点：所有使用scroll flag的view都必须定义在没有使用scroll flag的view的前面，这样才能确保所有的view从顶部退出，留下固定的元素。
+ -->
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 这里有一个很牛逼的地方.当RecyclerView没有设置layout_behavior时,RecyclerView
+        的内容会占满整个父view(CoordinatorLayout),第一个item和第二个item会被ToolBar和
+        TabLayout遮挡,而当RecyclerView设置了layout_behavior=@string/appbar_scrolling_view_behavior后,
+        RecyclerView会自动调整位置,位于整个AppBarLayout之下,从而不再被遮挡-->
+        <!-- 我觉得layout_behavior和layout_scrollFlags都是AppBarLayout提供
+        的属性,为的就是标记与自己相关的view,从而完成特殊的滚动操作.-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:minHeight="40dp"
+                app:tabGravity="fill"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Button mdTabLayout;
     @Bind(R.id.md_CoordinatorLayoutAndFAB)
     Button mdCoordinatorLayoutAndFAB;
+    @Bind(R.id.md_CoordinatorLayoutAndAppBar)
+    Button mdCoordinatorLayoutAndAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.md_CoordinatorLayoutAndFAB)
     public void onClickCoordinatorLayoutAndFAB() {
         Intent intent = new Intent(MainActivity.this, CoordinatorLayoutAndFABActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.md_CoordinatorLayoutAndAppBar)
+    public void onClickWithAppBar() {
+        Intent intent = new Intent(MainActivity.this, CoordinatorLayoutAndAppBarActivity.class);
         startActivity(intent);
     }
 }

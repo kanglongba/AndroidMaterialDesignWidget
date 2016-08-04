@@ -12,7 +12,7 @@ import butterknife.OnClick;
 /**
  * http://android-developers.blogspot.com/2015/05/android-design-support-library.html
  * 翻译:http://www.jcodecraeer.com/a/anzhuokaifa/developer/2015/0531/2958.html
- * 这个作者写得也不错:https://www.sitepoint.com/material-design-android-design-support-library/
+ * 这边文件讲到了很多细节,很值得一看http://www.jianshu.com/p/1078568e859f#
  */
 public class MainActivity extends AppCompatActivity {
 

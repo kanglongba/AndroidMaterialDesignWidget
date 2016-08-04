@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bupt.edison.androidmaterialdesignwidget.CollapsingToolbarActivity">
+
+    <!-- 如果没有CoordinatorLayout,只靠AppBarLayout和CollapsingToolbarLayout,无法实现折叠ToolBar的效果-->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 在这里,CoordinatorLayout是根本,提供一切特效的基础,没有它就没有一切特效-->
+        <!-- AppBarLayout提供layout_scrollFlags属性,设置不同的滚动行为(怎样滑出屏幕,怎样滑进屏幕)-->
+        <!-- CollapsingToolbarLayout提供layout_collapseMode属性,设置折叠的模式-->
+        <!-- 三者互相配合,缺一不可-->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/AppBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <!-- layout_collapseMode是CollapsingToolbarLayout提供的属性,有parallax和pin两种模式.
+            pin,确保Toolbar在view折叠的时候仍然被固定在屏幕的顶部。
+            parallax,来实现视差滚动效果（比如CollapsingToolbarLayout里面的一个ImageView），还可以使用app:layout_collapseParallaxMultiplier="0.7"来设置视差因子.这种情况和CollapsingToolbarLayout的app:contentScrim="?attr/colorPrimary"属性一起配合更完美。-->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/CollapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:contentScrim="?attr/colorPrimary">
+
+                <!-- 当ToolBar展开时,渐渐显示Image;当ToolBar折叠时,慢慢隐藏Image-->
+                <!-- 也可以不要ImageView,那样就没有了视察效果.-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/qiaotun"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

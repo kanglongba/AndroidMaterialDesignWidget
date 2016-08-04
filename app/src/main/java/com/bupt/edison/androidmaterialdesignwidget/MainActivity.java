@@ -9,6 +9,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * http://android-developers.blogspot.com/2015/05/android-design-support-library.html
+ * 翻译:http://www.jcodecraeer.com/a/anzhuokaifa/developer/2015/0531/2958.html
+ * 这个作者写得也不错:https://www.sitepoint.com/material-design-android-design-support-library/
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.MD_NavigationView)
@@ -25,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button mdCoordinatorLayoutAndFAB;
     @Bind(R.id.md_CoordinatorLayoutAndAppBar)
     Button mdCoordinatorLayoutAndAppBar;
+    @Bind(R.id.md_CollapsingToolbar)
+    Button mdCollapsingToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.md_CoordinatorLayoutAndAppBar)
     public void onClickWithAppBar() {
         Intent intent = new Intent(MainActivity.this, CoordinatorLayoutAndAppBarActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.md_CollapsingToolbar)
+    public void onClickCollapsingToolbar() {
+        Intent intent = new Intent(MainActivity.this, CollapsingToolbarActivity.class);
         startActivity(intent);
     }
 }

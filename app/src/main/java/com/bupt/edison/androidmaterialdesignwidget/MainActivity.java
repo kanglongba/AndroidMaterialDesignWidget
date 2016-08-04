@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.MD_NavigationView)
     Button MDNavigationView;
-    @Bind(R.id.google_navigationview)
-    Button googleNavigationview;
     @Bind(R.id.md_textinput)
     Button mdTextinput;
     @Bind(R.id.md_floatactionbuttion)
@@ -44,12 +42,6 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.MD_NavigationView)
     public void onClick() {
         Intent intent = new Intent(MainActivity.this, NavigationViewActivity.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.google_navigationview)
-    public void onClickGoogle() {
-        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
         startActivity(intent);
     }
 

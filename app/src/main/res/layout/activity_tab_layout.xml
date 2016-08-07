@@ -13,17 +13,46 @@
      3.与ViewPager协调使用,通过PagerAdapter的getPageTitle()获取选项卡的title,貌似不能设置icon
      虽然TabLayout也是一个Layout,但是在xml中,它除了TabItem什么也不能添加.
      Tablayout的选项卡,可以是等分的,也可以是可滚动的-->
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
+    <!-- 两个重要属性:
+    tabMode – 可以设置为fixed或是scrollable.当设置为scrollable时,tabGravity属性无效
+    tabGravity – 可以设置为center或是fill.fill表示几个tab平分控件;center表示几个tab从中间向两边展开,就好像轻版微博的设计.
+-->
+    <!--
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+-->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:tabGravity="fill"/>
+        android:paddingTop="8dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <!-- 当没有CoordinatorLayout和AppBarLayout包裹时,TabLayout的各个tab是不能响应点击
+        事件的.也就是说当前位于tabA,但是你点击了tabB,tab页并不会从tabA跳到tabB.但是此时可以通过
+        在tab栏滑动,切换tab页.
+        当被CoordinatorLayout和AppBarLayout包裹,或只被AppBarLayout包裹时,TabLayout的各个tab就可以响应
+        点击事件了.但是如果只被CoordinatorLayout包裹,TabLayout会消失不可见.
+        -->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:tabGravity="fill"
+            app:tabMode="fixed"/>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <!--
+        </android.support.design.widget.CoordinatorLayout>
+    -->
 </RelativeLayout>

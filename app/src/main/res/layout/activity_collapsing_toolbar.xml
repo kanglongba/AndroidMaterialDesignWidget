@@ -29,16 +29,16 @@
                 android:id="@+id/CollapsingToolbarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:contentScrim="?attr/colorPrimary">
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <!-- 当ToolBar展开时,渐渐显示Image;当ToolBar折叠时,慢慢隐藏Image-->
-                <!-- 也可以不要ImageView,那样就没有了视察效果.-->
+                <!-- 也可以不要ImageView,那样就没有了视差效果.-->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/qiaotun"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/qiaotun"
                     app:layout_collapseMode="parallax"/>
 
                 <android.support.v7.widget.Toolbar
@@ -56,6 +56,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatactionbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_directions_run"
+            app:fabSize="normal"
+            app:layout_anchor="@id/AppBarLayout"
+            app:layout_anchorGravity="bottom|right"/>
     </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

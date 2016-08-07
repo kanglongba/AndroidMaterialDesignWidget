@@ -13,6 +13,10 @@ import butterknife.OnClick;
  * http://android-developers.blogspot.com/2015/05/android-design-support-library.html
  * 翻译:http://www.jcodecraeer.com/a/anzhuokaifa/developer/2015/0531/2958.html
  * 这边文件讲到了很多细节,很值得一看http://www.jianshu.com/p/1078568e859f#
+ * <p>
+ * https://github.com/NashLegend/ProjectBabel/blob/master/Implementing%20Material%20Design%20in%20Your%20Android%20app.md
+ * https://github.com/NashLegend/ProjectBabel/blob/master/Material%20Design%20for%20Pre-Lollipop%20Devices.md
+ * http://hukai.me/android-dev-patterns/
  */
 public class MainActivity extends AppCompatActivity {
 
